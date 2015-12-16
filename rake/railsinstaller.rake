@@ -44,6 +44,20 @@ task :build => [ :require_railsinstaller ] do
 
 end
 
+desc "Build all components and dependencies into stage/."
+task :build_archives => [ :require_railsinstaller ] do
+
+  RailsInstaller.build_archives!
+
+end
+
+"Build all components in stage/."
+task :build_stage => [ :require_railsinstaller ] do
+
+  RailsInstaller.build_stage!
+
+end
+
 desc "Package all components into a single executable installer into pkg/."
 task :package => [ :require_railsinstaller ] do
 

@@ -1,7 +1,6 @@
 module RailsInstaller
 
   def self.build!
-
     components = [
       BSDTar, SevenZip, DevKit, Git, Ruby200,
       PostgresServer, Sqlite3, Sqlite3Dll
@@ -12,6 +11,26 @@ module RailsInstaller
       download package
       extract  package
     end
+
+    self.build_stage
+  end
+
+  def self.build_archives!
+    components = [
+      BSDTar, SevenZip, DevKit, Git, Ruby200,
+      PostgresServer, Sqlite3, Sqlite3Dll
+    ]
+
+    components.each do |package|
+      section  package.title
+      extract  package
+    end
+
+    self.build_stage
+  end
+
+
+  def self.build_stage!
 
     stage_sqlite
 
